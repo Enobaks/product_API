@@ -18,7 +18,7 @@ mongoose
     console.log("connected to MongoDB");
   })
   .catch((err) => {
-    console.log("Error connecting to MongoDB");
+    console.log("Error connecting to MongoDB", err);
   });
 
 app.use("/uploads", express.static("uploads"));
