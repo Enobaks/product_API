@@ -44,22 +44,11 @@ router.post("/create", upload.single("productImage"), async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    let filter = typeof req.body.filter === "object" ? req.body.filter : false;
-    let product = await Product.find(
-      {
-        _id: filter.id,
-        name: filter.name,
-        price: filter.price,
-        data: filter.date,
-      },
-      { date: 0 }
-    );
-    res
-      .status(200)
-      .send({ data: product, message: "Products found successfully" });
+    let product = await Product.find({});
+    res.send(product);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send("Server Error");
+    res.status(500).json({ message: "Server Error" });
   }
 });
 
