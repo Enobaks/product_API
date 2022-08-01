@@ -9,7 +9,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 const uri = process.env.PRODUCT_URI;
 
 mongoose
@@ -24,4 +24,4 @@ mongoose
 app.use("/uploads", express.static("uploads"));
 app.use("/product", product);
 
-app.listen(port, () => console.log("Server up and running"));
+app.listen(PORT, () => console.log("Server up and running"));
